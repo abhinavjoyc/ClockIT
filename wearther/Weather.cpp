@@ -15,9 +15,8 @@
 #include "http.h"
 #include "time.h"
 
-// -----------------------------------------------------------
-// GLOBAL CACHES (FOR HIGH PERFORMANCE)
-// -----------------------------------------------------------
+
+
 
 // LOCATION CACHE
 static bool locationLoaded = false;
@@ -45,7 +44,7 @@ std::string city = "unknown";
 void weathertab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont)
 {
     // -----------------------------------------------------------
-    // 1. BACKGROUND IMAGE (IMMOVABLE)
+    // 1. BACKGROUND IMAGE 
     // -----------------------------------------------------------
     ImGui::SetNextWindowPos({ 0, 0 });
     ImGui::SetNextWindowSize(io.DisplaySize);
@@ -95,7 +94,7 @@ void weathertab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont)
 
 
     // -----------------------------------------------------------
-    // 4. ICON (IMMOVABLE)
+    // 4. ICON 
     // -----------------------------------------------------------
     ImGui::SetNextWindowPos({ 0, 0 });
     ImGui::SetNextWindowSize(io.DisplaySize);
@@ -123,7 +122,7 @@ void weathertab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont)
 
 
     // -----------------------------------------------------------
-    // 5. WEATHER TEXT (IMMOVABLE)
+    // 5. WEATHER TEXT
     // -----------------------------------------------------------
     ImGui::Begin("WeatherText1", nullptr,
         ImGuiWindowFlags_NoDecoration |
@@ -160,7 +159,7 @@ void weathertab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont)
 
 
     // -----------------------------------------------------------
-    // 6. TIME (IMMOVABLE)
+    // 6. TIME 
     // -----------------------------------------------------------
     ImGui::Begin("Time1", nullptr,
         ImGuiWindowFlags_NoDecoration |
@@ -191,7 +190,7 @@ void weathertab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont)
 
 
     // -----------------------------------------------------------
-    // 7. CITY NAME (IMMOVABLE)
+    // 7. CITY NAME 
     // -----------------------------------------------------------
     ImGui::Begin("City1", nullptr,
         ImGuiWindowFlags_NoDecoration |

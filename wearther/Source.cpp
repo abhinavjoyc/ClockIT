@@ -1,7 +1,4 @@
-﻿// ==========================================================
-// main.cpp
-// Weather + Pomodoro UI using SDL2 + OpenGL + Dear ImGui
-// ==========================================================
+﻿
 
 // -------------------- OpenGL & Image ----------------------
 #include <glad/glad.h>
@@ -84,7 +81,7 @@ static GLuint LoadTexture(const char* filename)
 }
 
 // ==========================================================
-// ROOT WINDOW (Full-screen container)
+// ROOT WINDOW 
 // ==========================================================
 static void BeginRoot(ImGuiIO& io)
 {

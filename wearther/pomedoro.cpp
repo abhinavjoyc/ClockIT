@@ -1,6 +1,5 @@
 ﻿// ============================================================================
 // Pomodoro Timer Implementation
-// Simple C++ ImGui application for time management using Pomodoro technique
 // ============================================================================
 
 #include "Weather.h"
@@ -302,17 +301,17 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
     ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0, 0, 0, 0));  // Transparent background
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0, 0, 0, 0));  
 
     ImGui::Begin("BG1", nullptr,
-        ImGuiWindowFlags_NoDecoration |       // No title bar, scrollbar, etc
-        ImGuiWindowFlags_NoInputs |           // Doesn't receive input
-        ImGuiWindowFlags_NoMove |             // Cannot be moved
-        ImGuiWindowFlags_NoResize |           // Cannot be resized
-        ImGuiWindowFlags_NoScrollbar |        // No scrollbar
-        ImGuiWindowFlags_NoSavedSettings);    // Don't save settings
+        ImGuiWindowFlags_NoDecoration |       
+        ImGuiWindowFlags_NoInputs |           
+        ImGuiWindowFlags_NoMove |            
+        ImGuiWindowFlags_NoResize |         
+        ImGuiWindowFlags_NoScrollbar |        
+        ImGuiWindowFlags_NoSavedSettings);    
 
-    // Draw background image if available (textures[0])
+   
     if (textures.size() > 0) {
         ImGui::Image((ImTextureID)(intptr_t)textures[0], io.DisplaySize);
     }
@@ -324,7 +323,7 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
     ImGui::PopStyleVar(3);
 
     // ========================================================================
-    // LOGO SCREEN (shown when resumeButtonstate == true)
+    // LOGO SCREEN
     // ========================================================================
     if (resumeButtonstate)
     {
@@ -339,7 +338,7 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
 
         // Calculate position to center logo
         float logoX = (io.DisplaySize.x - logoScaled.x) * 0.5f;
-        float logoY = (io.DisplaySize.y - logoScaled.y) * 0.5f - 90;  // Offset up a bit
+        float logoY = (io.DisplaySize.y - logoScaled.y) * 0.5f - 90;  
 
         ImGui::SetNextWindowPos(ImVec2(logoX, logoY));
         ImGui::SetNextWindowSize(logoScaled);
@@ -430,13 +429,9 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
             ImGui::End();
         }
 
-        // --------------------------------------------------------------------
-        // STATS TEXT (display current settings)
-        // Only show LongBreak if rounds >= 4
-        // --------------------------------------------------------------------
+
         ImGui::PushFont(bigFont);
 
-        // Build stats string - only include long break if rounds >= 4
         std::string statsText =
             "Rounds: " + std::to_string(pom.rounds) +
             "    FocusTime: " + std::to_string(pom.focusTime) +
@@ -470,14 +465,14 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
         ImGui::End();
     }
     // ========================================================================
-    // TIMER SCREEN (shown when resumeButtonstate == false)
+    // TIMER SCREEN 
     // ========================================================================
     else
     {
         // --------------------------------------------------------------------
         // TIMER UPDATE LOGIC
         // --------------------------------------------------------------------
-        // Make sure timer is initialized
+     
         if (!timerInitialized) {
             currentRound = 1;
             currentState = TIMER_FOCUS;
@@ -490,11 +485,11 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
         double currentTime = ImGui::GetTime();
         if (startButtonState && (currentTime - lastTick) >= 1.0) {
             if (countdownSeconds > 0) {
-                // Decrease countdown
+               
                 countdownSeconds--;
             }
             else {
-                // Session finished - move to next session
+               
            
                 AdvanceToNextSession(audiofiles);
 
@@ -527,7 +522,7 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
         }
 
         // --------------------------------------------------------------------
-        // DISPLAY TIMER (full screen window)
+        // DISPLAY TIMER 
         // --------------------------------------------------------------------
         ImGui::SetNextWindowPos(ImVec2(0, 0));
         ImGui::SetNextWindowSize(io.DisplaySize);
@@ -542,11 +537,10 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
             ImGuiWindowFlags_NoScrollWithMouse |
             ImGuiWindowFlags_NoSavedSettings);
 
-        // Draw session label (centered, above timer)
+        // Draw session label 
         ImGui::SetWindowFontScale(6.5f);
-        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0, 0, 0, 1));  // Black text
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0, 0, 0, 1));  
 
-        // Build label with round number if in Focus mode
         char labelText[64];
         if (currentState == TIMER_FOCUS) {
             sprintf_s(labelText, sizeof(labelText), "%s %d", sessionLabel, currentRound);
@@ -558,14 +552,14 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
             sprintf_s(labelText, sizeof(labelText), "%s", sessionLabel);
         }
 
-        // Calculate label position (centered, above timer)
+        // Calculate label position 
         ImVec2 labelSize = ImGui::CalcTextSize(labelText);
         float labelX = (io.DisplaySize.x - labelSize.x) * 0.5f;
         float labelY = (io.DisplaySize.y * 0.5f) - 150.0f;
         ImGui::SetCursorPos(ImVec2(labelX, labelY));
         ImGui::TextUnformatted(labelText);
 
-        // Draw timer (big centered text) - always show, will be 00:00 when session ended
+        // Draw timer 
         ImGui::SetWindowFontScale(8.0f);
         ImVec2 timerSize = ImGui::CalcTextSize(timerText);
         float timerX = (io.DisplaySize.x - timerSize.x) * 0.5f;
@@ -579,7 +573,7 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
     }
 
     // ========================================================================
-    // BOTTOM CONTROL BUTTONS (STOP | START | RESET)
+    // BOTTOM CONTROL BUTTONS 
     // ========================================================================
 
     // Get texture IDs for each button
@@ -635,7 +629,7 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
     float resetY = baseY + resetOffset.y;
 
     // ------------------------------------------------------------------------
-    // STOP BUTTON (left button - resets everything and returns to logo)
+    // (left button - resets everything and returns to logo)
     // ------------------------------------------------------------------------
     ImGui::SetNextWindowPos(ImVec2(stopX, stopY));
     ImGui::SetNextWindowSize(stopWindowSize);
@@ -687,7 +681,7 @@ void PomederoTab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont, st
     ImGui::End();
 
     // ------------------------------------------------------------------------
-    // START/PAUSE BUTTON (center button - toggles timer)
+    // START/PAUSE BUTTON 
     // ------------------------------------------------------------------------
     ImGui::SetNextWindowPos(ImVec2(startX, startY));
     ImGui::SetNextWindowSize(startWindowSize);
