@@ -113,7 +113,7 @@ void weathertab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont)
     ImVec2 iconSize(300, 200);
     ImVec2 iconPos(
         (io.DisplaySize.x - iconSize.x) * 0.5f,
-        (io.DisplaySize.y - iconSize.y) * 0.5f - 150
+        (io.DisplaySize.y - iconSize.y) * 0.5f - 100
     );
 
     ImGui::SetCursorPos(iconPos);
@@ -181,7 +181,7 @@ void weathertab(ImGuiIO& io, std::vector<GLuint>& textures, ImFont* bigFont)
     }
 
     ImGui::SetCursorPos({
-        (io.DisplaySize.x - 300) * 0.5f,
+        (io.DisplaySize.x - 400) * 0.5f,
         (io.DisplaySize.y - 200) * 0.5f + 250
         });
 
