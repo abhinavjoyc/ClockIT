@@ -317,7 +317,7 @@ void Settingtab(
     static float rainVolume = 1.0f;
     static int   rainPreset = 0;
 
-    const char* presets[] = { "Light", "Medium", "Heavy" };
+    const char* presets[] = { "rain", "wave", "wind" };
 
     GlassToggle("rain_toggle", "Sound", &rainEnabled);
     ImGui::Dummy(ImVec2(0, 24));

@@ -71,6 +71,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>ClockIT</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>ClockIT</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -109,7 +115,7 @@
       <AdditionalIncludeDirectories>C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\mixer;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\json;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\http;$(ProjectDir)include\imgui;$(ProjectDir)include\;$(ProjectDir)include\SDL2;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\image;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -127,7 +133,7 @@
       <AdditionalIncludeDirectories>C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\mixer;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\json;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\http;$(ProjectDir)include\imgui;$(ProjectDir)include\;$(ProjectDir)include\SDL2;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\image;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -156,9 +162,16 @@
     <ClInclude Include="http.h" />
     <ClInclude Include="include\image\image.h" />
     <ClInclude Include="pomedoro.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="time.h" />
     <ClInclude Include="Weather.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="wearther.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

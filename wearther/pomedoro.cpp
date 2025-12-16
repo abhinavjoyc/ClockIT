@@ -172,16 +172,16 @@ void StartTimerSession(TimerState newState)
 
     // Set countdown time based on session type
     if (newState == TIMER_FOCUS) {
-        countdownSeconds = 10;
+        countdownSeconds = 25*60;
     }
     else if (newState == TIMER_SHORT_BREAK) {
-        countdownSeconds = 5;
+        countdownSeconds = 5*60;
     }
     else if (newState == TIMER_LONG_BREAK) {
-        countdownSeconds = 5;
+        countdownSeconds = 40*60;
     }
     else if (newState == SESSION_ENDED) {
-        countdownSeconds = 5;  // Show 00:00
+        countdownSeconds = 5;  
     }
 
     // Reset the tick timer
