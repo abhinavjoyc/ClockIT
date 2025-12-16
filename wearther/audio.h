@@ -34,6 +34,7 @@ void Audio_StopAll();
 void Audio_MuteAll();
 void Audio_UnmuteAll();
 void Audio_SetChannelVolume(int ch, int vol);
+void Audio_SetAllChannelVolume(int vol);
 
 
 // Timed playback (simple, blocking helper)

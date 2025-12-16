@@ -42,7 +42,16 @@ void GlassToggle(const char* id, const char* label, bool* value)
     if (ImGui::IsItemClicked())
     {
         *value = !(*value);
+        std::cout << *value;
         std::cout << label << ": " << (*value ? "ON" : "OFF") << std::endl;
+        if (*value)
+        {
+            Audio_UnmuteAll();
+        }
+        else
+        {
+            Audio_MuteAll();
+        }
     }
 
     dl->AddRectFilled(
@@ -107,6 +116,10 @@ void GlassSliderFloat(
     if (ImGui::IsItemDeactivated())
     {
         std::cout << label << ": " << *value << std::endl;
+        int x = *value * 100;
+        Audio_SetAllChannelVolume(x);
+        std::cout << "volume changed";
+        
     }
 
     float t = (*value - min) / (max - min);
@@ -236,6 +249,8 @@ void GlassCombo(
     if (*current != oldSelection)
     {
         std::cout << label << ": " << items[*current] << std::endl;
+      
+
     }
 
     ImGui::PopStyleVar(4);
@@ -298,19 +313,19 @@ void Settingtab(
 
     ImGui::Dummy(ImVec2(0, 35));
 
-    static bool  rainEnabled = false;
-    static float rainVolume = 0.4f;
+    static bool  rainEnabled = true;
+    static float rainVolume = 1.0f;
     static int   rainPreset = 0;
 
     const char* presets[] = { "Light", "Medium", "Heavy" };
 
-    GlassToggle("rain_toggle", "Rain Sound", &rainEnabled);
+    GlassToggle("rain_toggle", "Sound", &rainEnabled);
     ImGui::Dummy(ImVec2(0, 24));
 
-    GlassSliderFloat("rain_volume", "Rain Volume", &rainVolume, 0.0f, 1.0f);
+    GlassSliderFloat("System Volume", "Rain Volume", &rainVolume, 0.0f, 1.0f);
     ImGui::Dummy(ImVec2(0, 24));
 
-    GlassCombo("Rain Preset", presets, 3, &rainPreset);
+    GlassCombo("Voice List", presets, 3, &rainPreset);
 
     ImGui::End();
     ImGui::PopStyleVar(2);

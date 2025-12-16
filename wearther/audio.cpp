@@ -131,3 +131,7 @@ void Audio_SetChannelVolume(int ch, int vol) // vol 0..MIX_MAX_VOLUME
 {
     if (ch >= 0) Mix_Volume(ch, vol); //[web:89] 
 }
+void Audio_SetAllChannelVolume(int vol) // vol: 0 .. MIX_MAX_VOLUME
+{
+    Mix_Volume(-1, vol); // -1 = all channels
+}
