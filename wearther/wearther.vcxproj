@@ -112,7 +112,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\mixer;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\json;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\http;$(ProjectDir)include\imgui;$(ProjectDir)include\;$(ProjectDir)include\SDL2;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\image;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjDir)include\mixer;$(ProjDir)include\json;$(ProjDir)include\http;$(ProjectDir)include\imgui;$(ProjectDir)include\;$(ProjectDir)include\SDL2;$(ProjDir)include\image;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -130,7 +130,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\mixer;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\json;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\http;$(ProjectDir)include\imgui;$(ProjectDir)include\;$(ProjectDir)include\SDL2;C:\Users\XTEND\Desktop\HTTP\wearther\wearther\include\image;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjDir)include\mixer;$(ProjDir)include\json;$(ProjDir)include\http;$(ProjectDir)include\imgui;$(ProjectDir)include\;$(ProjectDir)include\SDL2;$(ProjDir)include\image;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
